@@ -1,0 +1,64 @@
+.header-wrapper {
+  height: 170px;
+  background-color: #C21D27;
+  padding: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.relative-wrapper {
+  position: relative;
+  width: fit-content;
+  text-decoration: none;
+}
+
+.logo {
+  font-size: 50px;
+  cursor: pointer;
+}
+
+.detail {
+  position: absolute;
+  right: -30px;
+  top: -20px;
+  font-size: 30px;
+  transform: rotate(45deg);
+}
+
+.header-button {
+  width: 120px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  transition: all 0.3s;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.sign-in-button {
+  background-color: #272727;
+}
+
+.sign-up-button {
+  border: 2px solid white;
+  margin-left: 20px;
+}
+
+.sign-in-button:hover {
+  border: 2px solid white;
+  margin-left: 20px;
+}
+
+.sign-up-button:hover {
+  border: 2px solid #C21D27;
+  background-color: white;
+  color: #C21D27;
+}
+
+.button-group {
+  width: fit-content;
+  display: flex;
+  justify-content: space-between;
+}

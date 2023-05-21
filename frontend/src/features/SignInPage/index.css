@@ -1,0 +1,45 @@
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form {
+  width: 710px;
+}
+
+.form-input {
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  color: black;
+  font-size: 24px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.error-message {
+  font-family: 'GothamProLight';
+  color: #ff2332;
+  min-height: 20px;
+  margin-top: 10px;
+}
+
+.form {
+  margin: 0 auto;
+}
+
+label {
+  font-size: 24px;
+  padding-bottom: 10px;
+}
+
+.withMarginTop {
+  margin-top: 40px;
+}
+
+.centered-button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 140px;
+}

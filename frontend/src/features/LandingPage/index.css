@@ -1,0 +1,70 @@
+.description-wrapper {
+  background-color: #1E1E1E;
+  min-height: 1000px;
+  padding-bottom: 400px;
+  padding-top: 150px;
+  padding-left: 70px;
+  padding-right: 70px;
+  display: flex;
+}
+
+.description-wrapper span {
+  color: #C21D27;
+}
+
+.description-title {
+  font-size: 32px;
+}
+
+.text-and-buttons {
+  width: 50%;
+}
+
+.description-subtitle {
+  font-size: 22px;
+  font-family: 'GothamProLight';
+  max-width: 703px;
+  margin-top: 45px;
+  position: relative;
+  left: 40px;
+  line-height: 110%;
+}
+
+.description-button-group {
+  display: flex;
+  position: relative;
+  left: 40px;
+  margin-top: 50px;
+}
+
+.description-button {
+  width: 180px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.go-button {
+  background-color: #C21D27;
+}
+
+.choose-button {
+  border: 2px solid white;
+  margin-left: 20px;
+  border: 2px solid #C21D27;
+}
+
+.go-button:hover {
+  border: 2px solid white;
+  background-color: white;
+  color: #C21D27;
+}
+
+.choose-button:hover {
+  border: 2px solid white;
+  background-color: white;
+  color: #1E1E1E;
+}
