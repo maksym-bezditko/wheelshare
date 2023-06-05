@@ -7,3 +7,8 @@
   font-family: 'GothamProLight';
   src: url('./fonts/gothampro_light.ttf') format('truetype');
 }
+
+@font-face {
+  font-family: 'GothamProMedium';
+  src: url('./fonts/gothampro_medium.ttf') format('truetype');
+}

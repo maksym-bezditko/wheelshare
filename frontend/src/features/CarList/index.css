@@ -1,0 +1,21 @@
+.bookmark {
+  -webkit-clip-path: polygon(100% 0, 100% 100%, 49% 68%, 0 100%, 0 0);
+  clip-path: polygon(100% 0, 100% 100%, 49% 68%, 0 100%, 0 0);
+  width: 27px;
+  height: 40px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translateX(-20px);
+  cursor: pointer;
+  background-color: #929292;
+  transition: all 0s linear 0.1s;
+}
+
+.isBookmarkActive {
+  background-color: black;
+}
+
+.bookmark:hover {
+  background-color: black;
+}

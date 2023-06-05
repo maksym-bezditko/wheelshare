@@ -1,0 +1,76 @@
+.sidebar-wrapper {
+  height: 100%;
+  width: 400px;
+  background-color: #1E1E1E;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 60px 30px;
+  border-right: 2px solid white;
+  transform: translateX(-400px);
+  transition: transform 0.2s linear 0.1s;
+  z-index: 51;
+}
+
+.sidebar-visible {
+  transform: none;
+}
+
+.smaller-logo {
+  font-size: 40px;
+}
+
+.smaller-logo-detail {
+  font-size: 30px;
+  right: 10px;
+}
+
+.sidebar-avatar {
+  width: 50px;
+  height: 50px;
+}
+
+.profile-preview-wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 80px;
+}
+
+.profile-preview-wrapper p {
+  font-size: 25px;
+  margin-left: 50px;
+}
+
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  padding-top: 50px;
+}
+
+.sidebar-link {
+  font-family: 'GothamProMedium';
+  font-size: 20px;
+  line-height: 30px;
+  margin: 10px 0;
+  transform: color 0.3s linear 0.3s;
+}
+
+.sidebar-link:hover {
+  color: #C21D27;
+}
+
+.main-link {
+  margin-top: 80px;
+}
+
+.sidebar-carpet {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: #1E1E1E;
+  opacity: 0.4;
+}

@@ -3,6 +3,8 @@ import { ErrorMessage, Field, Form, Formik, FormikHelpers } from "formik";
 import { useCallback } from "react";
 import * as Yup from 'yup';
 import Header from "../../components/Header";
+import { useNavigate } from "react-router-dom";
+import { useRequest } from "../../hooks/useRequest";
 
 type Values = {
   email: string;
@@ -22,13 +24,26 @@ const validationSchema = Yup.object({
 });
 
 const SignInPage = () => {
+  const navigate = useNavigate();
+
+  const { signIn } = useRequest();
+
   const handleSubmit = useCallback(async (values: Values, { setSubmitting, resetForm }: FormikHelpers<Values>) => {
-		// const { email, password } = values;
+    try {
+      const res = await signIn(values);
 
+      if (res) {
+        return navigate('/profile');
+      }
 
-		setSubmitting(false);
-		resetForm();
-	}, []);
+      throw new Error('Incorrect user data');
+    } catch (e: any) {
+      alert(e.message);
+    } finally {
+      setSubmitting(false);
+      resetForm();
+    }
+	}, [navigate, signIn]);
 
   return (
     <>

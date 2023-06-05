@@ -1,26 +1,44 @@
-export type CarClass = 'Sports car' | 'Sedan' | 'Compact car' | 'Truck';
+export enum CarClass {
+  SEDAN = 'Sedan',
+  SUV = 'Suv',
+  HATCHBACK = 'Hatchback',
+  SPORTS = 'Sports',
+}
+
 
 export type Car = {
   id: string;
   imageUrl: string;
   brand: string;
   model: string;
-  class: CarClass;
+  _class: CarClass;
   location: string;
+  costPerHour: number;
 };
 
+export type RentedCar = {
+  carId: string;
+  rentStarted: string;
+  rentInHours: number;
+}
+
 export type User = {
-  id: string;
+  _id: string;
   firstName: string;
   lastName: string;
   dateOfBirth: string;
   email: string;
-  paymentInfo: {
-    bank: string;
-    cardNumber: number;
-    cardTerm: string;
-    cvv: number;
-  };
-  cars: Car[];
+  bank: string;
+  cardNumber: string;
+  cardTerm: string;
+  cvv: string;
+  rentedCars: RentedCar[];
+  bookmarkedCars: string[],
 };
+
+export enum CarListContentType {
+  Bookmarks = 'bookmarks',
+  Available = 'available',
+  Rented = 'rented',
+}
 

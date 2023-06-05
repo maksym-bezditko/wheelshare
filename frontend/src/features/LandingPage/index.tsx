@@ -1,8 +1,14 @@
 import "./index.css";
 import Header from "../../components/Header";
 import camaro from '../../assets/camaro.png'
+import { NavLink } from "react-router-dom";
+import { Routes } from "../../models/routes";
+import { useAppSelector } from "../../app/hooks";
+import { selectIsSignedIn } from "../../app/slice";
 
 const LandingPage = () => {
+  const isSignedIn = useAppSelector(selectIsSignedIn);
+
   return (
     <>
       <Header />
@@ -19,8 +25,8 @@ perfect condition of the car, complete
 security and high level of service.</p>
 
             <div className="description-button-group">
-              <div className="description-button go-button">Go</div>
-              <div className="description-button choose-button">Choose your car</div>
+              <NavLink to={isSignedIn ? Routes.CARS : Routes.SIGN_IN} className="description-button go-button">Go</NavLink>
+              <NavLink to={isSignedIn ? Routes.CARS : Routes.SIGN_IN} className="description-button choose-button">Choose your car</NavLink>
             </div>
           </div>
           <div className="camaro-wrapper">

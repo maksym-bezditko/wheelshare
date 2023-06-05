@@ -1,0 +1,98 @@
+.profile-card-wrapper {
+  max-width: 1150px;
+  width: 100%;
+  height: 650px;
+  background-color: white;
+  margin: 0 auto;
+  border-radius: 10px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.no-upper-offset {
+  margin-top: 0;
+  padding-top: 100px;
+}
+
+.black-text {
+  color: black;
+}
+
+.profile-title {
+  font-size: 30px;
+}
+
+.avatar-image {
+  width: 200px;
+  height: 200px;
+}
+
+.profile-description-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.profile-description-info {
+  display: flex;
+  margin-left: 70px;
+  flex-grow: 1;
+}
+
+.column {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.column p {
+  color: black;
+  font-family: 'GothamProMedium';
+  line-height: 25px;
+}
+
+.bank-card {
+  width: 583px;
+  height: 250px;
+  background-color: #272727;
+  border-radius: 15px;
+  margin-top: 30px;
+  padding: 20px;
+}
+
+.bank-card-info-wrapper {
+  display: flex;
+  padding-left: 70px;
+  padding-right: 70px;
+  height: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.withLittleMarginTop {
+  margin-top: 10px;
+}
+
+.white-text p {
+  color: white;
+}
+
+.fields-wrapper {
+  width: 200px;
+}
+
+.cvv-placeholder {
+  cursor: pointer;
+  transition: all 0.1s linear 0.1s;
+  background-color: #676767;
+}
+
+.cvv-placeholder:hover {
+  background-color: #888888;
+}

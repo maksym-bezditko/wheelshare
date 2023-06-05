@@ -3,6 +3,9 @@ import { ErrorMessage, Field, Form, Formik, FormikHelpers } from "formik";
 import { useCallback } from "react";
 import * as Yup from 'yup';
 import Header from "../../components/Header";
+import { useRequest } from "../../hooks/useRequest";
+import { useNavigate } from "react-router-dom";
+import { Routes } from "../../models/routes";
 
 type Values = {
   firstName: string,
@@ -37,12 +40,21 @@ const validationSchema = Yup.object({
 		.required('Required'),
   dateOfBirth: Yup.string()
 		.required('Required'),
+	cardNumber: Yup.string()
+		.length(16, "Should be of card number format")
+		.required('Required'),
+	cardTerm: Yup.string()
+		.matches(/^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])$/, 'Invalid format')
+		.required('Required'),
   password: Yup.string()
 		.min(5, "Can't be less than five symbols")
 		.required('Required'),
   bank: Yup.string()
 		.min(5, "Can't be less than five symbols")
 		.required('Required'),
+	cvv: Yup.string()
+	.length(3, "Should be 3 symbols long")
+	.required('Required'),
 	email: Yup.string()
 		.min(5, "Can't be less than five symbols")
 		.required('Required')
@@ -50,13 +62,33 @@ const validationSchema = Yup.object({
 });
 
 const SignUpPage = () => {
+	const { signUp, checkEmail } = useRequest();
+
+	const navigate = useNavigate();
+
   const handleSubmit = useCallback(async (values: Values, { setSubmitting, resetForm }: FormikHelpers<Values>) => {
-		// const { email, password } = values;
+		try {
+			const emailRes = await checkEmail(values.email);
 
+			if (!emailRes) throw new Error("User with this email exists! Try another one.");
 
-		setSubmitting(false);
-		resetForm();
-	}, []);
+			const res = await signUp({
+				...values,
+				rentedCars: [],
+				bookmarkedCars: [],
+			});
+
+			if (res) {
+				setSubmitting(false);
+				resetForm();
+				return navigate(Routes.PROFILE);
+			}
+
+			throw new Error('Incorrect user data');
+		} catch (e: any) {
+			alert(e.message);
+		}
+	}, [checkEmail, navigate, signUp]);
 
   return (
     <>
@@ -125,7 +157,7 @@ const renderForm = ({ isSubmitting }: { isSubmitting: boolean }) => (
 
     <div className="form-group withMarginTop">
 			<label htmlFor="cardNumber">Enter your card number</label>
-			<Field name="cardNumber" className="form-input" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19" placeholder="XXXXXXXXXXXXXXXX"/>
+			<Field name="cardNumber" className="form-input" type="number" maxlength="16" placeholder="XXXXXXXXXXXXXXXX"/>
 
 			<ErrorMessage name="cardNumber">
 				{msg => <div className="error-message">{msg}</div>}
@@ -142,7 +174,7 @@ const renderForm = ({ isSubmitting }: { isSubmitting: boolean }) => (
 		</div>
 
     <div className="form-group withMarginTop">
-			<label htmlFor="cvv">Enter your cvv</label>
+			<label htmlFor="cvv">Enter your CVV</label>
 			<Field name="cvv" type="text" className="form-input" placeholder="XXX" />
 
 			<ErrorMessage name="cvv">
